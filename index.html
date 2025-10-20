@@ -1,13 +1,23 @@
-import { useRef, useEffect } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>story</title>
+</head>
+<body>
+    <audio id="bgAudio" loop>
+        <source src="hope.mp3" type="audio/mpeg" />
+    </audio>
 
-const audioRef = useRef(null);
-
-useEffect(() => {
-  if (audioRef.current) {
-    audioRef.current.play().catch(err => console.log('Autoplay blocked:', err));
-  }
-}, []);
-
-<audio ref={audioRef} loop>
-  <source src="hope.mp3" type="audio/mpeg" />
-</audio>
+    <script>
+        const audioRef = document.getElementById('bgAudio');
+        
+        window.addEventListener('load', () => {
+            if (audioRef) {
+                audioRef.play().catch(err => console.log('Autoplay blocked:', err));
+            }
+        });
+    </script>
+</body>
+</html>
