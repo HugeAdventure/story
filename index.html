@@ -1,1 +1,14 @@
+import { useRef, useEffect } from 'react';
 
+const audioRef = useRef(null);
+
+useEffect(() => {
+  if (audioRef.current) {
+    audioRef.current.play().catch(err => console.log('Autoplay blocked:', err));
+  }
+}, []);
+
+// In your JSX:
+<audio ref={audioRef} loop>
+  <source src="your-song-url.mp3" type="audio/mpeg" />
+</audio>
